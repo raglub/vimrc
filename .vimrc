@@ -5,7 +5,7 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    12.09.2012
+""""                    05.12.2012
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -15,6 +15,9 @@
 set scrolloff=10
 set sidescrolloff=10
 
+set nocompatible
+
+set switchbuf=useopen
 " Ignore case when searching
 set ignorecase
 
@@ -111,6 +114,8 @@ set ai "Auto indent
 set si "Smart indent
 "set paste
 set pastetoggle=<F7>
+imap <C-S> :vimgrep/./ ./app/**/*
+imap <A-s> :vimgrep/./ ./app/**/*
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => rest of settings
@@ -121,11 +126,11 @@ set hidden
 "highlighter word row
 syntax keyword comment def
 
-set novisualbell  " No blinking
-set noerrorbells  " No noise
+"set novisualbell  " No blinking
+"set noerrorbells  " No noise
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
 
-set showmatch  " Show matching brackets
+"set showmatch  " Show matching brackets
 set mat=5  " Bracket blinking
 
 inoremap <F2> <c-n>
@@ -134,9 +139,44 @@ inoremap <F2> <c-n>
 map <F3> :setlocal spell spelllang=pl<CR>
 
 " refresh setting :so %
-map <F7> :so%<CR>
+map <F14> :so%<CR>
 
 map <F8> :mksession! mysession.vim<CR>
 " vim -S mysession.vim
 map <F9> :source mysession.vim<CR>
+map <F10> :FufFile<CR>
+call pathogen#infect()
+"ruby
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+"improve autocomplete menu color
+highlight Pmenu ctermbg=238 gui=bold
+let g:SuperTabDefaultCompletionType = "context"
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => install
+"
+" rails syntax, ruby syntax any ruby complete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" cd ~/.vim/bundle
+" git clone git://github.com/tpope/vim-rails.git
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" cd ~/.vim/bundle
+" git clone git://github.com/vim-ruby/vim-ruby.git
+"MRU
+"Matchit
+"IndexedSearch
+"vim-align
+"vim-surround
+"gist
+"vim-cucumber
+"vim-tcomment
+"jquery
+"vim-fugitive
+"vim-vividchalk
+"vim-git
+"vim-ruby-debugger
+"vim-shoulda
+"textile.vim
