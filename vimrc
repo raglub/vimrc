@@ -5,7 +5,7 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    05.12.2012
+""""                    05.01.2013
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -114,9 +114,10 @@ set ai "Auto indent
 set si "Smart indent
 "set paste
 set pastetoggle=<F7>
-imap <C-S> :vimgrep/./ ./app/**/*
-imap <A-s> :vimgrep/./ ./app/**/*
 
+map <c-b> :vimgrep/./ ./app/**/*
+"my helper
+map <c-h> :sp ~/.vimrc<ENTER>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => rest of settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -165,6 +166,7 @@ let g:SuperTabDefaultCompletionType = "context"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cd ~/.vim/bundle
 " git clone git://github.com/vim-ruby/vim-ruby.git
+
 "MRU
 "Matchit
 "IndexedSearch

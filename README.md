@@ -1,6 +1,9 @@
 ## Installation
 
     $ cd ~
-    $ git clone git://github.com/raglub/vimrc
-    $ ln -s "vimrc/vim" .vim
-    $ ln -s "vimrc/vimrc" .vimrc
+    $ git clone git://github.com/raglub/vimrc .vim
+    $ vim .vimrc
+
+To file ".vimrc" add a line
+
+    so ~/.vim/vimrc
