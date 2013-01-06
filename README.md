@@ -2,6 +2,7 @@
 
     $ cd ~
     $ git clone git://github.com/raglub/vimrc .vim
+    $ git submodule init
     $ git submodule update
     $ vim .vimrc
 
