@@ -5,7 +5,7 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    05.01.2013
+""""                    29.01.2013
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -17,6 +17,12 @@ set sidescrolloff=10
 
 set nocompatible
 
+"set clipboard=unnamedplus " use the system clipboard for yank/put/delete
+"set mouse=a " enable mouse for all modes settings
+"set nomousehide " don't hide the mouse cursor while typing
+"set mousemodel=popup " right-click pops up context menu
+"set cursorline " highlight the current line
+
 set switchbuf=useopen
 " Ignore case when searching
 set ignorecase
@@ -27,7 +33,7 @@ set smartcase
 " Makes search act like search in modern browsers
 set incsearch
 
-"Always show current position
+"Always show current position in status bar
 set ruler
 
 " Highlight search results
@@ -43,7 +49,7 @@ set number
 set autoread
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8 " saving and encoding
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -57,9 +63,10 @@ set statusline+=\ %03l/%L:\%03c\             "Rownumber/ colnr
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fold
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set foldmethod=syntax " fold only one block (za)
+set nofoldenable
+"set foldmethod=syntax " fold only one block (za)
 "set foldcolumn=4
-set foldlevel=5 "fold code nested in 5 level
+"set foldlevel=5 "fold code nested in 5 level
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -115,13 +122,10 @@ set si "Smart indent
 "set paste
 set pastetoggle=<F7>
 
-map <c-b> :vimgrep/./ ./app/**/*
-"my helper
-map <c-h> :sp ~/.vimrc<ENTER>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => rest of settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"don't unload buffer when switching away
 set hidden
 
 "highlighter word row
@@ -134,6 +138,12 @@ set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
 "set showmatch  " Show matching brackets
 set mat=5  " Bracket blinking
 
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+set colorcolumn=80
+
+hi CursorLine term=none cterm=none guibg=#2c2d27
+set cursorline
+
 inoremap <F2> <c-n>
 
 " spellcheck - command z=
@@ -145,7 +155,14 @@ map <F14> :so%<CR>
 map <F8> :mksession! mysession.vim<CR>
 " vim -S mysession.vim
 map <F9> :source mysession.vim<CR>
-map <F10> :FufFile<CR>
+
+map <F10> :FufFile **/<CR>
+map <c-f> :FufCoverageFile<CR>
+map <c-b> :vimgrep/./ ./app/**/*
+
+"my helper
+map <c-h> :sp ~/.vimrc<ENTER>
+
 call pathogen#infect()
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -156,17 +173,17 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 highlight Pmenu ctermbg=238 gui=bold
 let g:SuperTabDefaultCompletionType = "context"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => install
-"
+
 " rails syntax, ruby syntax any ruby complete
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cd ~/.vim/bundle
 " git clone git://github.com/tpope/vim-rails.git
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cd ~/.vim/bundle
 " git clone git://github.com/vim-ruby/vim-ruby.git
-
 "MRU
 "Matchit
 "IndexedSearch
