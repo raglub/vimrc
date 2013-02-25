@@ -5,7 +5,7 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    29.01.2013
+""""                    25.02.2013
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -16,7 +16,7 @@ set scrolloff=10
 set sidescrolloff=10
 
 set nocompatible
-
+set clipboard+=unnamed  " Yanks go on clipboard instead.
 "set clipboard=unnamedplus " use the system clipboard for yank/put/delete
 "set mouse=a " enable mouse for all modes settings
 "set nomousehide " don't hide the mouse cursor while typing
@@ -141,8 +141,8 @@ set mat=5  " Bracket blinking
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 set colorcolumn=80
 
-hi CursorLine term=none cterm=none guibg=#2c2d27
-set cursorline
+"hi CursorLine term=none cterm=none guibg=#2c2d27
+"set cursorline
 
 inoremap <F2> <c-n>
 
@@ -152,9 +152,9 @@ map <F3> :setlocal spell spelllang=pl<CR>
 " refresh setting :so %
 map <F14> :so%<CR>
 
-map <F8> :mksession! mysession.vim<CR>
+map <F8> :mksession! .mysession.vim<CR>
 " vim -S mysession.vim
-map <F9> :source mysession.vim<CR>
+map <F9> :source .mysession.vim<CR>
 
 map <F10> :FufFile **/<CR>
 map <c-f> :FufCoverageFile<CR>
@@ -162,17 +162,16 @@ map <c-b> :vimgrep/./ ./app/**/*
 
 "my helper
 map <c-h> :sp ~/.vimrc<ENTER>
+set ft=html.eruby  "snipmante common for htm and erb
 
 call pathogen#infect()
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-"improve autocomplete menu color
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 highlight Pmenu ctermbg=238 gui=bold
 let g:SuperTabDefaultCompletionType = "context"
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => install
@@ -184,6 +183,7 @@ let g:SuperTabDefaultCompletionType = "context"
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cd ~/.vim/bundle
 " git clone git://github.com/vim-ruby/vim-ruby.git
+
 "MRU
 "Matchit
 "IndexedSearch
