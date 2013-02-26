@@ -9,3 +9,21 @@
 To file ".vimrc" add a line
 
     so ~/.vim/vimrc
+
+## Plugins
+
+Used plugins:
+
+- vim-fuzzyfinder (L9)
+- eruby.vim
+- nerdtree
+- vim-nerdtree-tabs
+- snipmate-snippets
+- snipmate.vim
+- vim-coffee-script
+- vim-markdown
+- vim-rails
+- vim-ruby
+- vim-subpertab
+- vim-fugitive
+- vim-tcomment

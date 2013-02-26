@@ -5,7 +5,7 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    25.02.2013
+""""                    26.02.2013
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -184,18 +184,9 @@ let g:SuperTabDefaultCompletionType = "context"
 " cd ~/.vim/bundle
 " git clone git://github.com/vim-ruby/vim-ruby.git
 
-"MRU
 "Matchit
-"IndexedSearch
 "vim-align
-"vim-surround
-"gist
 "vim-cucumber
-"vim-tcomment
 "jquery
-"vim-fugitive
-"vim-vividchalk
-"vim-git
 "vim-ruby-debugger
 "vim-shoulda
-"textile.vim
