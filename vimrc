@@ -148,6 +148,10 @@ inoremap <F2> <c-n>
 
 " spellcheck - command z=
 map <F3> :setlocal spell spelllang=pl<CR>
+nnoremap <F4> :GundoToggle<CR>
+let g:gundo_width = 40
+let g:gundo_preview_height = 15
+let g:gundo_right = 1
 
 " refresh setting :so %
 map <F14> :so%<CR>
