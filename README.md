@@ -9,6 +9,9 @@
 To file ".vimrc" add a line
 
     so ~/.vim/vimrc
+## ShortCuts
+  <F4> - Open/Close Gundo
+  <F5> - Open/Close NerdTree
 
 ## Plugins
 
@@ -27,3 +30,4 @@ Used plugins:
 - vim-subpertab
 - vim-fugitive
 - vim-tcomment
+

@@ -5,10 +5,12 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    26.02.2013
+""""                    16.03.2013
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call pathogen#infect()
+
 " VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " kursor jest oddalony od top and bottom since 10 lines
@@ -16,13 +18,13 @@ set scrolloff=10
 set sidescrolloff=10
 
 set nocompatible
+
 set clipboard+=unnamed  " Yanks go on clipboard instead.
 "set clipboard=unnamedplus " use the system clipboard for yank/put/delete
 "set mouse=a " enable mouse for all modes settings
 "set nomousehide " don't hide the mouse cursor while typing
 "set mousemodel=popup " right-click pops up context menu
 "set cursorline " highlight the current line
-
 set switchbuf=useopen
 " Ignore case when searching
 set ignorecase
@@ -50,16 +52,9 @@ set autoread
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8 " saving and encoding
-
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-
-set laststatus=2
-set statusline=%<%F%m%r%h%w\ \%n             "full path, modified flag
-set statusline +=\ %=\[%{&ff}:%{&fenc}:%Y\]   "file format, codding, typ
-set statusline+=%{&spelllang}\  "Spellanguage & Highlight on?
-set statusline+=\ %03l/%L:\%03c\             "Rownumber/ colnr
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fold
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -83,7 +78,7 @@ set sidescroll=1
 " Set a white charecters like tab and space·
 set listchars=tab:>-,trail:·
 set list
-
+set laststatus=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -107,12 +102,6 @@ set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
 set history=1000
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set t_Co=256
-colorscheme mustang
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => indent
@@ -148,17 +137,34 @@ inoremap <F2> <c-n>
 
 " spellcheck - command z=
 map <F3> :setlocal spell spelllang=pl<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin gundo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F4> :GundoToggle<CR>
 let g:gundo_width = 40
 let g:gundo_preview_height = 15
 let g:gundo_right = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader = "-"
+
+imap <leader>' ''<ESC>i
+imap <leader>" ""<ESC>i
+imap <leader>( ""<ESC>i
+
+" Multicursor
+nnoremap nn1:<c-u>call multicursorplacecursor()<cr>
+nnoremap nn2 :<c-u>call MultiCursorManual()<cr>
+nnoremap nn3 :<c-u>call MultiCursorRemoveCursors()<cr>
+let g:multicursor_quit = "<C-c>"
 
 " refresh setting :so %
 map <F14> :so%<CR>
 
-map <F8> :mksession! .mysession.vim<CR>
+map <F8> :mksession! .session.vim<CR>
 " vim -S mysession.vim
-map <F9> :source .mysession.vim<CR>
+map <F9> :source .session.vim<CR>
 
 map <F10> :FufFile **/<CR>
 map <c-f> :FufCoverageFile<CR>
@@ -168,7 +174,6 @@ map <c-b> :vimgrep/./ ./app/**/*
 map <c-h> :sp ~/.vimrc<ENTER>
 set ft=html.eruby  "snipmante common for htm and erb
 
-call pathogen#infect()
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
@@ -177,20 +182,9 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 highlight Pmenu ctermbg=238 gui=bold
 let g:SuperTabDefaultCompletionType = "context"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => install
-
-" rails syntax, ruby syntax any ruby complete
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" cd ~/.vim/bundle
-" git clone git://github.com/tpope/vim-rails.git
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" cd ~/.vim/bundle
-" git clone git://github.com/vim-ruby/vim-ruby.git
-
-"Matchit
-"vim-align
-"vim-cucumber
-"jquery
-"vim-ruby-debugger
-"vim-shoulda
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set t_Co=256
+colorscheme mustang
+"let g:Powerline_symbols = 'unicode'
