@@ -5,7 +5,7 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    16.03.2013
+""""                    19.03.2013
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -158,6 +158,12 @@ imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
 imap <leader>( ""<ESC>i
 
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 " Multicursor
 nnoremap nn1:<c-u>call multicursorplacecursor()<cr>
 nnoremap nn2 :<c-u>call MultiCursorManual()<cr>
@@ -192,4 +198,34 @@ let g:SuperTabDefaultCompletionType = "context"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 colorscheme mustang
-"let g:Powerline_symbols = 'unicode'
+
+if exists("+showtabline")
+ function MyTabLine()
+     let s = ''
+     let t = tabpagenr()
+     let i = 1
+     while i <= tabpagenr('$')
+         let buflist = tabpagebuflist(i)
+         let winnr = tabpagewinnr(i)
+         let s .= '%' . i . 'T'
+         let s .= "%*"
+         let s .= ' | '
+         let s .= (i == t ? '%#TabLineSel#' : '%#TabLineFill#')
+         let s .= i . ':'
+         let file = bufname(buflist[winnr - 1])
+         let file = pathshorten(file)
+         if file == ''
+             let file = '[No Name]'
+         endif
+         let s .= file
+         let i = i + 1
+     endwhile
+     let s .= '%T%#TabLineFill#%='
+     let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+     return s
+ endfunction
+ "set stal=2
+ set tabline=%!MyTabLine()
+endif
+hi TabLineSel ctermfg=white ctermbg=238 cterm=bold gui=bold
+hi TabLineFill ctermfg=238 ctermbg=Gray
