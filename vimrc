@@ -5,7 +5,7 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    19.03.2013
+""""                    20.03.2013
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -183,7 +183,6 @@ map <c-b> :vimgrep/./ ./app/**/*
 
 "my helper
 map <c-h> :sp ~/.vimrc<ENTER>
-set ft=html.eruby  "snipmante common for htm and erb
 
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -199,6 +198,9 @@ let g:SuperTabDefaultCompletionType = "context"
 set t_Co=256
 colorscheme mustang
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => TAbline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists("+showtabline")
  function MyTabLine()
      let s = ''
@@ -209,15 +211,23 @@ if exists("+showtabline")
          let winnr = tabpagewinnr(i)
          let s .= '%' . i . 'T'
          let s .= "%*"
-         let s .= ' | '
+         let s .= ' ∙ '
          let s .= (i == t ? '%#TabLineSel#' : '%#TabLineFill#')
          let s .= i . ':'
-         let file = bufname(buflist[winnr - 1])
+         if len(buflist) > 1
+           let file = bufname(buflist[1])
+         else
+           let file = bufname(buflist[winnr -1])
+         endif
+
          let file = pathshorten(file)
          if file == ''
              let file = '[No Name]'
          endif
          let s .= file
+         if getbufvar( file, "&modified" )
+           let s .= "+"
+         endif
          let i = i + 1
      endwhile
      let s .= '%T%#TabLineFill#%='
