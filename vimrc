@@ -5,7 +5,7 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    20.03.2013
+""""                    27.03.2013
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -19,8 +19,8 @@ set sidescrolloff=10
 
 set nocompatible
 
-set clipboard+=unnamed  " Yanks go on clipboard instead.
-"set clipboard=unnamedplus " use the system clipboard for yank/put/delete
+set clipboard=unnamed  " Yanks go on clipboard instead.
+set clipboard=unnamedplus " use the system clipboard for yank/put/delete
 "set mouse=a " enable mouse for all modes settings
 "set nomousehide " don't hide the mouse cursor while typing
 "set mousemodel=popup " right-click pops up context menu
@@ -130,14 +130,6 @@ set mat=5  " Bracket blinking
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 set colorcolumn=80
 
-"hi CursorLine term=none cterm=none guibg=#2c2d27
-"set cursorline
-
-inoremap <F2> <c-n>
-
-" spellcheck - command z=
-map <F3> :setlocal spell spelllang=pl<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin vim-surround
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -152,11 +144,14 @@ let g:gundo_preview_height = 15
 let g:gundo_right = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let mapleader = "-"
+let mapleader = ","
 
 imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
-imap <leader>( ""<ESC>i
+imap <leader>( ()<ESC>i
+imap <leader>[ []<ESC>i
+
+nmap go o<ESC>k
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -164,25 +159,35 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+nmap G Gzz
+nmap n nzz
+nmap N Nzz
+nmap } }zz
+nmap { {zz
+
+nmap <c-Tab> :tabnext<CR>
+nmap <c-s-Tab> :tabprevious<CR>
+nmap <c-Tab> :tabnext<CR>
+nmap <c-s-Tab> :tabprevious<CR>
+imap <c-Tab> :tabnext<CR>
+imap <c-s-Tab> :tabprevious<CR>
+
 " Multicursor
 nnoremap nn1:<c-u>call multicursorplacecursor()<cr>
 nnoremap nn2 :<c-u>call MultiCursorManual()<cr>
 nnoremap nn3 :<c-u>call MultiCursorRemoveCursors()<cr>
 let g:multicursor_quit = "<C-c>"
 
-" refresh setting :so %
-map <F14> :so%<CR>
-
+inoremap <F2> <c-n>
+" spellcheck - command z=
+map <F3> :setlocal spell spelllang=pl<CR>
+map <F6> :DiffChangesDiffToggle<CR>
 map <F8> :mksession! .session.vim<CR>
 " vim -S mysession.vim
 map <F9> :source .session.vim<CR>
-
-map <F10> :FufFile **/<CR>
-map <c-f> :FufCoverageFile<CR>
-map <c-b> :vimgrep/./ ./app/**/*
-
-"my helper
-map <c-h> :sp ~/.vimrc<ENTER>
+map <s-F10> :tabnew \| :CtrlP<CR>
+map <c-F10> :CtrlP<CR>
+map <F10> :vimgrep/./ ./app/**/*
 
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
