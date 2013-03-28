@@ -5,10 +5,11 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    27.03.2013
+""""                    28.03.2013
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 call pathogen#infect()
 
 " VIM user interface
@@ -19,12 +20,10 @@ set sidescrolloff=10
 
 set nocompatible
 
-set clipboard=unnamed  " Yanks go on clipboard instead.
+set clipboard=unnamed  " Yanks go on clipboard instead. (install vim-gnome)
 set clipboard=unnamedplus " use the system clipboard for yank/put/delete
-"set mouse=a " enable mouse for all modes settings
-"set nomousehide " don't hide the mouse cursor while typing
-"set mousemodel=popup " right-click pops up context menu
-"set cursorline " highlight the current line
+set mouse=a " enable mouse for all modes settings (install vim-gtk)
+set mousemodel=popup " right-click pops up context menu
 set switchbuf=useopen
 " Ignore case when searching
 set ignorecase

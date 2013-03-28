@@ -13,6 +13,7 @@ To file ".vimrc" add a line
 
 ## ShortCuts
 
-  <F4> - Open/Close Gundo
-  <F5> - Open/Close NerdTree
-  <c-F10> - Open CtrlP
+    <F4> - Open/Close Gundo
+    <F5> - Open/Close NerdTree
+    <F6> - Show differences to change the file
+    <c-F10> - Open CtrlP
