@@ -5,7 +5,7 @@
 """"                    Michał Szyma
 """"
 """"             Date:
-""""                    28.03.2013
+""""                    15.11.2014
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -73,6 +73,7 @@ set expandtab
 
 set listchars=extends:>
 set sidescroll=1
+set lazyredraw
 
 " Set a white charecters like tab and space·
 set listchars=tab:>-,trail:·

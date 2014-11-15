@@ -3,13 +3,13 @@
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/snipmate.vim"]
 	path = bundle/snipmate.vim
-	url = git://github.com/msanders/snipmate.vim.git
+	url = https://github.com/msanders/snipmate.vim.git
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
-	url = git://github.com/tpope/vim-markdown.git
+	url = https://github.com/tpope/vim-markdown.git
 [submodule "bundle/vim-nerdtree-tabs"]
 	path = bundle/vim-nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
@@ -18,16 +18,16 @@
 	url = https://github.com/vim-scripts/vim-coffee-script.git
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
-	url = git://github.com/tpope/vim-rails.git
+	url = https://github.com/tpope/vim-rails.git
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
-	url = git://github.com/vim-ruby/vim-ruby.git
+	url = https://github.com/vim-ruby/vim-ruby.git
 [submodule "bundle/vim-supertab"]
 	path = bundle/vim-supertab
-	url = git://github.com/tsaleh/vim-supertab.git
+	url = https://github.com/tsaleh/vim-supertab.git
 [submodule "bundle/vim-tcomment"]
 	path = bundle/vim-tcomment
-	url = git://github.com/jmartindf/vim-tcomment.git
+	url = https://github.com/jmartindf/vim-tcomment.git
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim
 	url = https://github.com/sjl/gundo.vim.git
