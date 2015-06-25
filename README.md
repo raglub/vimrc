@@ -1,15 +1,19 @@
 ## Installation
 
-    $ cd ~
-    $ git clone git://github.com/raglub/vimrc .vim
-    $ cd ~/.vim
-    $ git submodule init
-    $ git submodule update
-    $ vim ~/.vimrc
+```bash
+    cd ~
+    git clone https://github.com/raglub/vimrc .vim
+    cd ~/.vim
+    git submodule init
+    git submodule update
+    vim ~/.vimrc
+```
 
 To file ".vimrc" add a line
 
+```
     so ~/.vim/vimrc
+```
 
 ## ShortCuts
 

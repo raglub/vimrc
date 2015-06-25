@@ -1,14 +1,6 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""           Author:
-""""                    Michał Szyma
-""""
-""""             Date:
-""""                    15.11.2014
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Author: Michał Szyma
+" Version: 0.1.0
+" Last Modified: 25.06.2015
 
 call pathogen#infect()
 
@@ -182,9 +174,6 @@ inoremap <F2> <c-n>
 " spellcheck - command z=
 map <F3> :setlocal spell spelllang=pl<CR>
 map <F6> :DiffChangesDiffToggle<CR>
-map <F8> :mksession! .session.vim<CR>
-" vim -S mysession.vim
-map <F9> :source .session.vim<CR>
 map <s-F10> :tabnew \| :CtrlP<CR>
 map <c-F10> :CtrlP<CR>
 map <F10> :vimgrep/./ ./app/**/*
@@ -203,44 +192,5 @@ let g:SuperTabDefaultCompletionType = "context"
 set t_Co=256
 colorscheme mustang
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => TAbline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if exists("+showtabline")
- function MyTabLine()
-     let s = ''
-     let t = tabpagenr()
-     let i = 1
-     while i <= tabpagenr('$')
-         let buflist = tabpagebuflist(i)
-         let winnr = tabpagewinnr(i)
-         let s .= '%' . i . 'T'
-         let s .= "%*"
-         let s .= ' ∙ '
-         let s .= (i == t ? '%#TabLineSel#' : '%#TabLineFill#')
-         let s .= i . ':'
-         if len(buflist) > 1
-           let file = bufname(buflist[1])
-         else
-           let file = bufname(buflist[winnr -1])
-         endif
-
-         let file = pathshorten(file)
-         if file == ''
-             let file = '[No Name]'
-         endif
-         let s .= file
-         if getbufvar( file, "&modified" )
-           let s .= "+"
-         endif
-         let i = i + 1
-     endwhile
-     let s .= '%T%#TabLineFill#%='
-     let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
-     return s
- endfunction
- "set stal=2
- set tabline=%!MyTabLine()
-endif
-hi TabLineSel ctermfg=white ctermbg=238 cterm=bold gui=bold
-hi TabLineFill ctermfg=238 ctermbg=Gray
+let g:indentLine_char = '▏'
+let g:indentLine_color_term = 238
